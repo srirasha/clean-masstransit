@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B0EBC86E-1D51-4012-AA43-E87EB43CE79A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Producer.API", "src\Web.Producer.API\Web.Producer.API.csproj", "{ABD47CE9-7ACB-4864-B210-F3DBD3802191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Consumer.API", "src\Web.Consumer.API\Web.Consumer.API.csproj", "{690D2A3F-167A-4F93-8FAD-581A2E572B5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABD47CE9-7ACB-4864-B210-F3DBD3802191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD47CE9-7ACB-4864-B210-F3DBD3802191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD47CE9-7ACB-4864-B210-F3DBD3802191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD47CE9-7ACB-4864-B210-F3DBD3802191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690D2A3F-167A-4F93-8FAD-581A2E572B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690D2A3F-167A-4F93-8FAD-581A2E572B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690D2A3F-167A-4F93-8FAD-581A2E572B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690D2A3F-167A-4F93-8FAD-581A2E572B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ABD47CE9-7ACB-4864-B210-F3DBD3802191} = {B0EBC86E-1D51-4012-AA43-E87EB43CE79A}
+		{690D2A3F-167A-4F93-8FAD-581A2E572B5D} = {B0EBC86E-1D51-4012-AA43-E87EB43CE79A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EA9955B-5B48-48FA-B0A1-74295D089D91}
+	EndGlobalSection
+EndGlobal
