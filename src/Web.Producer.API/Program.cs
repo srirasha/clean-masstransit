@@ -1,3 +1,4 @@
+using Domain.Events.Players;
 using Domain.Events.Tweets;
 using MassTransit;
 
@@ -43,6 +44,15 @@ app.MapPost("/tweet/send", async (TweetPublishedEvent message, ISendEndpointProv
 app.MapPost("/tweet/deleted", async (TweetDeletedEvent message, IBus bus, CancellationToken cancellationToken) =>
 {
     await bus.Publish(message, cancellationToken);
+
+    return Results.Accepted();
+});
+
+app.MapPost("/player/connected", async (PlayerConnectedEvent message, ISendEndpointProvider sendEndpointProvider, CancellationToken cancellationToken) =>
+{
+    ISendEndpoint endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:player.connected"));
+
+    await endpoint.Send(message, cancellationToken);
 
     return Results.Accepted();
 });
