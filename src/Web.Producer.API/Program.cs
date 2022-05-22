@@ -31,11 +31,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapPost("/message/send", async (TweetPublishedEvent message, ISendEndpointProvider sendEndpointProvider) =>
+app.MapPost("/tweet/send", async (TweetPublishedEvent message, ISendEndpointProvider sendEndpointProvider) =>
 {
     ISendEndpoint endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:tweet-published"));
 
     await endpoint.Send(message);
+
+    return Results.Accepted();
 });
 
 app.Run();
