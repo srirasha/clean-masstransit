@@ -34,7 +34,7 @@ app.UseHttpsRedirection();
 
 app.MapPost("/tweet/send", async (TweetPublishedEvent message, ISendEndpointProvider sendEndpointProvider, CancellationToken cancellationToken) =>
 {
-    ISendEndpoint endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:tweet-published"));
+    ISendEndpoint endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:tweet.published"));
 
     await endpoint.Send(message, cancellationToken);
 

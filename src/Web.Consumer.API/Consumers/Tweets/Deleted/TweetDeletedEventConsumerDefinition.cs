@@ -6,7 +6,7 @@ namespace Web.Consumer.API.Consumers.Tweets.Deleted
     {
         public TweetDeletedEventConsumerDefinition()
         {
-            //EndpointName = "tweet-deleted";
+            EndpointName = "tweet.deleted";
         }
 
         protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<TweetDeletedEventConsumer> consumerConfigurator)
