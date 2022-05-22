@@ -40,4 +40,11 @@ app.MapPost("/tweet/send", async (TweetPublishedEvent message, ISendEndpointProv
     return Results.Accepted();
 });
 
+app.MapPost("/tweet/deleted", async (TweetDeletedEvent message, IBus bus, CancellationToken cancellationToken) =>
+{
+    await bus.Publish(message, cancellationToken);
+
+    return Results.Accepted();
+});
+
 app.Run();
