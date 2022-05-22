@@ -1,7 +1,8 @@
-﻿using Domain.Events.Players;
+﻿using Application.Events.Players;
 using MassTransit;
+using Microsoft.Extensions.Logging;
 
-namespace Web.Consumer.API.Consumers.Players.Connected
+namespace Infrastructure.Messaging.Consumers.Players.Connected
 {
     public class PlayerConnectedEventConsumer : IConsumer<PlayerConnectedEvent>
     {

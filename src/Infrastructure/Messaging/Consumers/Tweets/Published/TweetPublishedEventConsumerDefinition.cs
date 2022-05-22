@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 
-namespace Web.Consumer.API.Consumers.Tweets.Published
+namespace Infrastructure.Messaging.Consumers.Tweets.Published
 {
     public class TweetPublishedEventConsumerDefinition : ConsumerDefinition<TweetPublishedEventConsumer>
     {

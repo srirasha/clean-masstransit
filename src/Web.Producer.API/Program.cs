@@ -1,5 +1,5 @@
-using Domain.Events.Players;
-using Domain.Events.Tweets;
+using Application.Events.Players;
+using Application.Events.Tweets;
 using MassTransit;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -32,7 +32,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapPost("/tweet/send", async (TweetPublishedEvent message, ISendEndpointProvider sendEndpointProvider, CancellationToken cancellationToken) =>
+app.MapPost("/tweet/sent", async (TweetPublishedEvent message, ISendEndpointProvider sendEndpointProvider, CancellationToken cancellationToken) =>
 {
     ISendEndpoint endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:tweet.published"));
 

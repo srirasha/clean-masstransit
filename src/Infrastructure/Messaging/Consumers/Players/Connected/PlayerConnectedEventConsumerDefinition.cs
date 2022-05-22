@@ -1,6 +1,7 @@
-﻿using MassTransit;
+﻿using Infrastructure.Messaging.Consumers.Players.Connected;
+using MassTransit;
 
-namespace Web.Consumer.API.Consumers.Players.Connected
+namespace Infrastructure.Messaging.Events.Players.Connected
 {
     public class PlayerConnectedEventConsumerDefinition : ConsumerDefinition<PlayerConnectedEventConsumer>
     {

@@ -1,5 +1,5 @@
+using Infrastructure.Messaging.Consumers.Tweets.Published;
 using MassTransit;
-using Web.Consumer.API.Consumers.Tweets.Published;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

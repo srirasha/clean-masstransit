@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 
-namespace Web.Consumer.API.Consumers.Tweets.Deleted
+namespace Infrastructure.Messaging.Consumers.Tweets.Deleted
 {
     public class TweetDeletedEventConsumerDefinition : ConsumerDefinition<TweetDeletedEventConsumer>
     {

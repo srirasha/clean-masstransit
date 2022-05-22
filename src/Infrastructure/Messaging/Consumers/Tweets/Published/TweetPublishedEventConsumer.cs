@@ -1,7 +1,8 @@
-﻿using Domain.Events.Tweets;
+﻿using Application.Events.Tweets;
 using MassTransit;
+using Microsoft.Extensions.Logging;
 
-namespace Web.Consumer.API.Consumers.Tweets.Published
+namespace Infrastructure.Messaging.Consumers.Tweets.Published
 {
     public class TweetPublishedEventConsumer : IConsumer<TweetPublishedEvent>
     {

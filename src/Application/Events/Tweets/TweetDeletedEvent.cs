@@ -1,4 +1,4 @@
-﻿namespace Domain.Events.Tweets
+﻿namespace Application.Events.Tweets
 {
     public class TweetDeletedEvent
     {
