@@ -1,25 +1,16 @@
 using Application.Events.Players;
 using Application.Events.Tweets;
+using Infrastructure;
 using MassTransit;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddInfrastructure(builder.Configuration);
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMassTransit(x =>
-{
-    x.UsingRabbitMq((context, cfg) =>
-    {
-        cfg.Host(builder.Configuration["Messaging:Host"], host =>
-        {
-            host.Username(builder.Configuration["Messaging:Username"]);
-            host.Password(builder.Configuration["Messaging:Password"]);
-        });
-
-        cfg.ConfigureEndpoints(context);
-    });
-});
 
 WebApplication app = builder.Build();
 
