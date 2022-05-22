@@ -10,7 +10,7 @@ builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", host =>
+        cfg.Host(builder.Configuration["Messaging:Host"], host =>
         {
             host.Username(builder.Configuration["Messaging:Username"]);
             host.Password(builder.Configuration["Messaging:Password"]);
