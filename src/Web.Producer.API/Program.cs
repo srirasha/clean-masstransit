@@ -1,8 +1,10 @@
 using Application;
 using Application.Events.Players;
 using Application.Events.Tweets;
+using Application.Players.Commands.NotifyPlayerConnected;
 using Infrastructure;
 using MassTransit;
+using MediatR;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -39,11 +41,9 @@ app.MapPost("/tweet/deleted", async (TweetDeletedEvent message, IBus bus, Cancel
     return Results.Accepted();
 });
 
-app.MapPost("/player/connected", async (PlayerConnectedEvent message, ISendEndpointProvider sendEndpointProvider, CancellationToken cancellationToken) =>
+app.MapPost("/player/connected", async (PlayerConnectedEvent message, IMediator mediator, CancellationToken cancellationToken) =>
 {
-    ISendEndpoint endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:player.connected"));
-
-    await endpoint.Send(message, cancellationToken);
+    await mediator.Send(new NotifyPlayerConnectedCommand(message), cancellationToken);
 
     return Results.Accepted();
 });
