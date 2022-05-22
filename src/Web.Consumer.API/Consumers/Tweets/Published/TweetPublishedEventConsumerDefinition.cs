@@ -2,14 +2,14 @@
 
 namespace Web.Consumer.API.Consumers.Tweets.Published
 {
-    public class TweetPublishEventConsumerDefinition : ConsumerDefinition<TweetPublishEventConsumer>
+    public class TweetPublishedEventConsumerDefinition : ConsumerDefinition<TweetPublishedEventConsumer>
     {
-        public TweetPublishEventConsumerDefinition()
+        public TweetPublishedEventConsumerDefinition()
         {
             EndpointName = "tweet-published";
         }
 
-        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<TweetPublishEventConsumer> consumerConfigurator)
+        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<TweetPublishedEventConsumer> consumerConfigurator)
         {
             // configure message retry with millisecond intervals
             endpointConfigurator.UseMessageRetry(r => r.Intervals(100, 200, 500, 800, 1000));

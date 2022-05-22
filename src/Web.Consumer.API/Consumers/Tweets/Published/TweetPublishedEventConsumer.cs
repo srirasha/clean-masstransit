@@ -3,11 +3,11 @@ using MassTransit;
 
 namespace Web.Consumer.API.Consumers.Tweets.Published
 {
-    public class TweetPublishEventConsumer : IConsumer<TweetPublishedEvent>
+    public class TweetPublishedEventConsumer : IConsumer<TweetPublishedEvent>
     {
         private readonly ILogger _logger;
 
-        public TweetPublishEventConsumer(ILogger<TweetPublishEventConsumer> logger)
+        public TweetPublishedEventConsumer(ILogger<TweetPublishedEventConsumer> logger)
         {
             _logger = logger;
         }
