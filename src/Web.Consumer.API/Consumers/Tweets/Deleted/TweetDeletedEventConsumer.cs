@@ -14,7 +14,7 @@ namespace Web.Consumer.API.Consumers.Tweets.Deleted
 
         public Task Consume(ConsumeContext<TweetDeletedEvent> context)
         {
-            _logger.LogInformation("tweet deleted: {TweetId}", context.Message.Id);
+            _logger.LogInformation("Tweet deleted: {Tweet}", context.Message.Id);
 
             return Task.CompletedTask;
         }

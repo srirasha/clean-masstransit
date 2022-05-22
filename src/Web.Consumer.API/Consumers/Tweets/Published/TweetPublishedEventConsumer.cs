@@ -14,7 +14,7 @@ namespace Web.Consumer.API.Consumers.Tweets.Published
 
         public Task Consume(ConsumeContext<TweetPublishedEvent> context)
         {
-            _logger.LogInformation("Message received: {Tweet}", context.Message.Text);
+            _logger.LogInformation("Tweet published: {Tweet}", context.Message.Text);
 
             return Task.CompletedTask;
         }
