@@ -1,5 +1,7 @@
-﻿using Infrastructure.Configurations;
+﻿using Application._Common.Services;
+using Infrastructure.Configurations;
 using Infrastructure.Messaging.Consumers.Tweets.Published;
+using Infrastructure.Messaging.Producers;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,8 @@ namespace Infrastructure
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<MessagingConfiguration>(configuration.GetSection("Messaging"));
+
+            services.AddScoped<IMessagesHandler, MessagesHandler>();
 
             AddMassTransit(services, configuration);
         }
