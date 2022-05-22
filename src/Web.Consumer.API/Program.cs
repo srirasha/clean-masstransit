@@ -1,5 +1,5 @@
 using MassTransit;
-using Web.Consumer.API;
+using Web.Consumer.API.Consumers.Tweets.Published;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +8,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddMassTransit(x =>
 {
-    x.AddConsumers(typeof(MessageConsumer).Assembly); // auto add all consumers from an assembly
+    x.AddConsumers(typeof(TweetPublishEventConsumer).Assembly); // auto add all consumers from an assembly
 
     x.UsingRabbitMq((context, cfg) =>
     {
@@ -17,11 +17,6 @@ builder.Services.AddMassTransit(x =>
             host.Username("guest");
             host.Password("guest");
         });
-
-        //cfg.ReceiveEndpoint("yes", e =>
-        //{
-        //    e.ConfigureConsumer<MessageConsumer>(context);
-        //});
 
         cfg.ConfigureEndpoints(context);
     });
