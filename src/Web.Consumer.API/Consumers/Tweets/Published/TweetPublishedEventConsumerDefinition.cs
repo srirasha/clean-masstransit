@@ -6,6 +6,7 @@ namespace Web.Consumer.API.Consumers.Tweets.Published
     {
         public TweetPublishedEventConsumerDefinition()
         {
+            //overload the default queue name "TweetPublishedEvent" which is the name of the object consumed on the TweetPublishedEventConsumer class
             EndpointName = "tweet-published";
         }
 
