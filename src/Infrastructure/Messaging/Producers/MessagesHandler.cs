@@ -1,6 +1,5 @@
 ﻿using Application._Common.Services;
 using MassTransit;
-using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Messaging.Producers
 {
