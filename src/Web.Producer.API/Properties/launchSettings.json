@@ -11,7 +11,7 @@
   "profiles": {
     "Development": {
       "applicationUrl": "https://localhost:7236;http://localhost:5236",
-      "commandName": "Development",
+      "commandName": "Project",
       "dotnetRunMessages": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
