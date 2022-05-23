@@ -1,0 +1,42 @@
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672 #web UI - login: guest:guest
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq/
+    networks:
+      - clean-masstransit
+
+  web.producer.api:
+    build:
+      context: .
+      dockerfile: src/Web.Producer.API/Dockerfile
+    ports:
+      - 7236:80
+    depends_on:
+      - "rabbitmq"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Local
+    networks:
+      - clean-masstransit
+
+  web.consumer.api:
+    build:
+      context: .
+      dockerfile: src/Web.Consumer.API/Dockerfile
+    ports:
+      - 7185:80
+    depends_on:
+      - "rabbitmq"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Local
+    networks:
+      - clean-masstransit
+
+networks:
+  clean-masstransit:
+    driver: bridge
