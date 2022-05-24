@@ -1,5 +1,4 @@
 ﻿using Application._Common.Services;
-using Infrastructure.Configurations;
 using Infrastructure.Messaging.Consumers.Players.Connected;
 using Infrastructure.Services;
 using MassTransit;
@@ -12,8 +11,6 @@ namespace Infrastructure
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<MessagingConfiguration>(configuration.GetSection("Messaging"));
-
             services.AddScoped<ICommandMessagesHandler, CommandMessagesHandler>();
             services.AddScoped<IEventMessagesHandler, EventMessagesHandler>();
 
