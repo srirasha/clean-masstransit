@@ -3,10 +3,10 @@ using MassTransit;
 
 namespace Infrastructure.Messaging.Events.Players.Connected
 {
-    public class PlayerConnectedEventConsumerDefinition : ConsumerDefinition<PlayerConnectedEventConsumer>
+    public class PlayerConnectedConsumerDefinition : ConsumerDefinition<PlayerConnectedConsumer>
     {
 
-        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<PlayerConnectedEventConsumer> consumerConfigurator)
+        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<PlayerConnectedConsumer> consumerConfigurator)
         {
             // configure message retry with millisecond intervals
             endpointConfigurator.UseMessageRetry(r => r.Intervals(100, 200, 500, 800, 1000));

@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Messaging.Consumers.Trophies.Unlock
 {
-    public class UnlockTrophyCommandConsumer : IConsumer<UnlockTrophy>
+    public class UnlockTrophyConsumer : IConsumer<UnlockTrophy>
     {
         private readonly ILogger _logger;
 
-        public UnlockTrophyCommandConsumer(ILogger<UnlockTrophyCommandConsumer> logger)
+        public UnlockTrophyConsumer(ILogger<UnlockTrophyConsumer> logger)
         {
             _logger = logger;
         }

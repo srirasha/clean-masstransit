@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Messaging.Consumers.Players.Connected
 {
-    public class PlayerConnectedEventConsumer : IConsumer<PlayerConnected>
+    public class PlayerConnectedConsumer : IConsumer<PlayerConnected>
     {
         private readonly ILogger _logger;
 
-        public PlayerConnectedEventConsumer(ILogger<PlayerConnectedEventConsumer> logger)
+        public PlayerConnectedConsumer(ILogger<PlayerConnectedConsumer> logger)
         {
             _logger = logger;
         }

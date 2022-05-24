@@ -24,7 +24,7 @@ namespace Infrastructure
         {
             services.AddMassTransit(x =>
             {
-                x.AddConsumers(typeof(PlayerConnectedEventConsumer).Assembly); // auto add all consumers from an assembly
+                x.AddConsumers(typeof(PlayerConnectedConsumer).Assembly); // auto add all consumers from an assembly
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
