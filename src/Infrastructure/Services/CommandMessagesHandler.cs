@@ -3,11 +3,11 @@ using MassTransit;
 
 namespace Infrastructure.Services
 {
-    public class CommandsHandler : ICommandMessagesHandler
+    public class CommandMessagesHandler : ICommandMessagesHandler
     {
         private readonly ISendEndpointProvider _sendEndpointProvider;
 
-        public CommandsHandler(ISendEndpointProvider sendEndpointProvider)
+        public CommandMessagesHandler(ISendEndpointProvider sendEndpointProvider)
         {
             _sendEndpointProvider = sendEndpointProvider;
         }

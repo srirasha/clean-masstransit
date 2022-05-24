@@ -3,11 +3,11 @@ using MassTransit;
 
 namespace Infrastructure.Services
 {
-    public class EventsHandler : IEventMessagesHandler
+    public class EventMessagesHandler : IEventMessagesHandler
     {
         private readonly IBus _bus;
 
-        public EventsHandler(IBus bus)
+        public EventMessagesHandler(IBus bus)
         {
             _bus = bus;
         }

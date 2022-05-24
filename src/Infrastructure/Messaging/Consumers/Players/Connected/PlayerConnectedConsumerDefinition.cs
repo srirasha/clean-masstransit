@@ -5,7 +5,6 @@ namespace Infrastructure.Messaging.Events.Players.Connected
 {
     public class PlayerConnectedConsumerDefinition : ConsumerDefinition<PlayerConnectedConsumer>
     {
-
         protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<PlayerConnectedConsumer> consumerConfigurator)
         {
             // configure message retry with millisecond intervals
