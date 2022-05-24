@@ -5,16 +5,16 @@ namespace Application.Players.Commands.NotifyPlayerConnected
 {
     public class NotifyPlayerConnectedCommandHandler : IRequestHandler<NotifyPlayerConnectedCommand, Unit>
     {
-        private readonly ICommandsHandler _commandsHandler;
+        private readonly IEventMessagesHandler _eventsHandler;
 
-        public NotifyPlayerConnectedCommandHandler(ICommandsHandler commandsHandler)
+        public NotifyPlayerConnectedCommandHandler(IEventMessagesHandler eventsHandler)
         {
-            _commandsHandler = commandsHandler;
+            _eventsHandler = eventsHandler;
         }
 
         public async Task<Unit> Handle(NotifyPlayerConnectedCommand request, CancellationToken cancellationToken)
         {
-            await _commandsHandler.Send(request.Event, "player.connected", cancellationToken);
+            await _eventsHandler.Publish(request.Event, cancellationToken);
 
             return Unit.Value;
         }

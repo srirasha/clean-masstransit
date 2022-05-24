@@ -3,7 +3,7 @@ using MassTransit;
 
 namespace Infrastructure.Messaging.Producers
 {
-    public class EventsHandler : IEventsHandler
+    public class EventsHandler : IEventMessagesHandler
     {
         private readonly IBus _bus;
 

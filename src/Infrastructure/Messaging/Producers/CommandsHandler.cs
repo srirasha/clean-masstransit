@@ -3,7 +3,7 @@ using MassTransit;
 
 namespace Infrastructure.Messaging.Producers
 {
-    public class CommandsHandler : ICommandsHandler
+    public class CommandsHandler : ICommandMessagesHandler
     {
         private readonly ISendEndpointProvider _sendEndpointProvider;
 

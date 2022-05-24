@@ -7,7 +7,6 @@ namespace Infrastructure.Messaging.Events.Players.Connected
     {
         public PlayerConnectedEventConsumerDefinition()
         {
-            EndpointName = "player.connected";
         }
 
         protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<PlayerConnectedEventConsumer> consumerConfigurator)
