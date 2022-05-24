@@ -5,11 +5,11 @@ namespace Application.Players.Commands.NotifyPlayerConnected
 {
     public class NotifyPlayerConnectedCommand : IRequest<Unit>
     {
-        public NotifyPlayerConnectedCommand(PlayerConnectedEvent @event)
+        public NotifyPlayerConnectedCommand(PlayerConnected @event)
         {
             Event = @event;
         }
 
-        public PlayerConnectedEvent Event { get; set; }
+        public PlayerConnected Event { get; set; }
     }
 }

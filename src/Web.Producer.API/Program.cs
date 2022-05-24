@@ -1,10 +1,9 @@
 using Application;
 using Application.Players.Commands.NotifyPlayerConnected;
-using Application.Trophies.Commands.UnlockTrophy;
+using Application.Trophies.Commands.Unlock;
+using Domain.Commands.Trophies;
 using Domain.Events.Players;
-using Domain.Messages.Trophies;
 using Infrastructure;
-using MassTransit;
 using MediatR;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -26,7 +25,7 @@ if (!app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/players/connected", async (PlayerConnectedEvent @event, IMediator mediator, CancellationToken cancellationToken) =>
+app.MapPost("/players/connected", async (PlayerConnected @event, IMediator mediator, CancellationToken cancellationToken) =>
 {
     await mediator.Send(new NotifyPlayerConnectedCommand(@event), cancellationToken);
 
@@ -34,9 +33,9 @@ app.MapPost("/players/connected", async (PlayerConnectedEvent @event, IMediator 
 })
 .WithTags("Players");
 
-app.MapPost("/trophies/unlock", async (UnlockTrophyMessage message, IMediator mediator, CancellationToken cancellationToken) =>
+app.MapPost("/trophies/unlock", async (UnlockTrophy command, IMediator mediator, CancellationToken cancellationToken) =>
 {
-    await mediator.Send(new UnlockTrophyCommand(message), cancellationToken);
+    await mediator.Send(new UnlockTrophyCommand(command), cancellationToken);
 
     return Results.Accepted();
 })

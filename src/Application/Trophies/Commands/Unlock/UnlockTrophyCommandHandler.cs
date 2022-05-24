@@ -1,7 +1,8 @@
 ﻿using Application._Common.Services;
+using Application.Trophies.Commands.Unlock;
 using MediatR;
 
-namespace Application.Trophies.Commands.UnlockTrophy
+namespace Application.Trophies.Commands.Unlock
 {
     public class UnlockTrophyCommandHandler : IRequestHandler<UnlockTrophyCommand, Unit>
     {
@@ -14,7 +15,7 @@ namespace Application.Trophies.Commands.UnlockTrophy
 
         public async Task<Unit> Handle(UnlockTrophyCommand request, CancellationToken cancellationToken)
         {
-            await _messagesHandler.Publish(request.Message, cancellationToken);
+            await _messagesHandler.Publish(request.Command, cancellationToken);
 
             return Unit.Value;
         }

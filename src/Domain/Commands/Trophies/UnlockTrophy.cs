@@ -1,6 +1,6 @@
-﻿namespace Domain.Messages.Trophies
+﻿namespace Domain.Commands.Trophies
 {
-    public class UnlockTrophyMessage
+    public class UnlockTrophy
     {
         public string Id { get; set; }
 

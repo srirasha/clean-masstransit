@@ -1,6 +1,6 @@
 ﻿namespace Domain.Events.Players
 {
-    public class PlayerConnectedEvent
+    public class PlayerConnected
     {
         public DateTime ConnectionDateTime { get; set; }
 

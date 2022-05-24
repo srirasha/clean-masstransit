@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Messaging.Consumers.Players.Connected
 {
-    public class PlayerConnectedEventConsumer : IConsumer<PlayerConnectedEvent>
+    public class PlayerConnectedEventConsumer : IConsumer<PlayerConnected>
     {
         private readonly ILogger _logger;
 
@@ -13,7 +13,7 @@ namespace Infrastructure.Messaging.Consumers.Players.Connected
             _logger = logger;
         }
 
-        public Task Consume(ConsumeContext<PlayerConnectedEvent> context)
+        public Task Consume(ConsumeContext<PlayerConnected> context)
         {
             _logger.LogInformation("Player connected: {connectedPlayerId}", context.Message.Id);
 
