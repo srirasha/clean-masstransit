@@ -5,9 +5,6 @@ namespace Infrastructure.Messaging.Events.Players.Connected
 {
     public class PlayerConnectedEventConsumerDefinition : ConsumerDefinition<PlayerConnectedEventConsumer>
     {
-        public PlayerConnectedEventConsumerDefinition()
-        {
-        }
 
         protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<PlayerConnectedEventConsumer> consumerConfigurator)
         {

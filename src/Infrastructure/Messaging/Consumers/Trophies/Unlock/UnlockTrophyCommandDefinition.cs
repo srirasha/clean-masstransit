@@ -7,7 +7,6 @@ namespace Infrastructure.Messaging.Consumers.Trophies.Unlock
         public UnlockTrophyCommandDefinition()
         {
             EndpointName = "trophy.unlock";
-
         }
     }
 }
