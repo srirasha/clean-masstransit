@@ -1,4 +1,4 @@
-﻿using Application.Events.Players;
+﻿using Domain.Events.Players;
 using MediatR;
 
 namespace Application.Players.Commands.NotifyPlayerConnected

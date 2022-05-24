@@ -1,4 +1,4 @@
-﻿using Application.Events.Players;
+﻿using Domain.Events.Players;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 

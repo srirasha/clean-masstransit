@@ -1,7 +1,8 @@
 using Application;
-using Application.Events.Players;
-using Application.Events.Tweets;
 using Application.Players.Commands.NotifyPlayerConnected;
+using Application.Trophies.Commands.UnlockTrophy;
+using Domain.Events.Players;
+using Domain.Messages.Trophies;
 using Infrastructure;
 using MassTransit;
 using MediatR;
@@ -25,28 +26,20 @@ if (!app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 
-
-app.MapPost("/tweet/published", async (TweetPublishedEvent message, ISendEndpointProvider sendEndpointProvider, CancellationToken cancellationToken) =>
+app.MapPost("/players/connected", async (PlayerConnectedEvent @event, IMediator mediator, CancellationToken cancellationToken) =>
 {
-    ISendEndpoint endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("queue:tweet.published"));
-
-    await endpoint.Send(message, cancellationToken);
+    await mediator.Send(new NotifyPlayerConnectedCommand(@event), cancellationToken);
 
     return Results.Accepted();
-});
+})
+.WithTags("Players");
 
-app.MapPost("/tweet/deleted", async (TweetDeletedEvent message, IBus bus, CancellationToken cancellationToken) =>
+app.MapPost("/trophies/unlock", async (UnlockTrophyMessage message, IMediator mediator, CancellationToken cancellationToken) =>
 {
-    await bus.Publish(message, cancellationToken);
+    await mediator.Send(new UnlockTrophyCommand(message), cancellationToken);
 
     return Results.Accepted();
-});
-
-app.MapPost("/player/connected", async (PlayerConnectedEvent message, IMediator mediator, CancellationToken cancellationToken) =>
-{
-    await mediator.Send(new NotifyPlayerConnectedCommand(message), cancellationToken);
-
-    return Results.Accepted();
-});
+})
+.WithTags("Trophies");
 
 app.Run();

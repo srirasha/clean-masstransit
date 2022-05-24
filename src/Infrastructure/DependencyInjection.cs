@@ -1,6 +1,6 @@
 ﻿using Application._Common.Services;
 using Infrastructure.Configurations;
-using Infrastructure.Messaging.Consumers.Tweets.Published;
+using Infrastructure.Messaging.Consumers.Players.Connected;
 using Infrastructure.Messaging.Producers;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +15,7 @@ namespace Infrastructure
             services.Configure<MessagingConfiguration>(configuration.GetSection("Messaging"));
 
             services.AddScoped<IMessagesHandler, MessagesHandler>();
+            services.AddScoped<IEventsHandler, EventsHandler>();
 
             AddMassTransit(services, configuration);
         }
@@ -23,7 +24,7 @@ namespace Infrastructure
         {
             services.AddMassTransit(x =>
             {
-                x.AddConsumers(typeof(TweetPublishedEventConsumer).Assembly); // auto add all consumers from an assembly
+                x.AddConsumers(typeof(PlayerConnectedEventConsumer).Assembly); // auto add all consumers from an assembly
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
