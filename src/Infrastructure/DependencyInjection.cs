@@ -1,7 +1,7 @@
 ﻿using Application._Common.Services;
 using Infrastructure.Configurations;
 using Infrastructure.Messaging.Consumers.Players.Connected;
-using Infrastructure.Messaging.Producers;
+using Infrastructure.Services;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

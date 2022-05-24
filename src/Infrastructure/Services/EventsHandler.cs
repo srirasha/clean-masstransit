@@ -1,7 +1,7 @@
 ﻿using Application._Common.Services;
 using MassTransit;
 
-namespace Infrastructure.Messaging.Producers
+namespace Infrastructure.Services
 {
     public class EventsHandler : IEventMessagesHandler
     {
