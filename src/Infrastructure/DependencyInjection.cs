@@ -14,7 +14,7 @@ namespace Infrastructure
         {
             services.Configure<MessagingConfiguration>(configuration.GetSection("Messaging"));
 
-            services.AddScoped<IMessagesHandler, MessagesHandler>();
+            services.AddScoped<ICommandsHandler, CommandsHandler>();
             services.AddScoped<IEventsHandler, EventsHandler>();
 
             AddMassTransit(services, configuration);
